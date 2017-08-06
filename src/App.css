@@ -2,13 +2,7 @@
   margin-top: 30px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.error-text {
+  color: red;
 }
 
-.App-intro {
-  font-size: large;
-}
