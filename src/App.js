@@ -13,14 +13,19 @@ class App extends Component {
 
   onSubmit = (fields) => {
     this.setState({fields});
-    console.log(this.state);
   }
 
   render() {
+    var submitMessage;
+    if (this.state.fields.businessEmail) {
+      submitMessage = <div className="alert alert-success" role="alert">
+        <strong>Thank you for signing up!</strong> A confirmation email has been sent to {this.state.fields.businessEmail}.
+      </div>
+    }
     return (
       <div className="App">
+        {submitMessage}
         <Form onSubmit={fields => this.onSubmit(fields)} />
-        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
       </div>
     );
   }
