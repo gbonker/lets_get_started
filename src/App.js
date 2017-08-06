@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { 
+      fields: {}
+    };
+  }
+
+  onSubmit = (fields) => {
+    this.setState({fields});
+  }
+
   render() {
+    var submitMessage;
+    if (this.state.fields.businessEmail) {
+      submitMessage = <div className="alert alert-success" role="alert">
+        <strong>Thank you for signing up!</strong> A confirmation email has been sent to {this.state.fields.businessEmail}.
+      </div>
+    }
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {submitMessage}
+        <Form onSubmit={fields => this.onSubmit(fields)} />
       </div>
     );
   }
