@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormError from './FormError'
+import '../Form.css';
 
 class Form extends Component {
   constructor(props) {
@@ -170,11 +171,11 @@ class Form extends Component {
         <h1 className="text-center">Let's Get Started</h1>
         <form>
           <div className={`form-group ${this.errorClass(this.state.formErrors.businessName)}`}>
-            <label>Business Name</label>
+            <label className="form-label">Business Name</label>
             <input
               name="businessName" 
               type="text" 
-              className="form-control" 
+              className="form-control input-lg form-input" 
               aria-describedby="businessNameHelp" 
               value={this.state.businessName} 
               onChange={event => this.change(event)}
@@ -183,11 +184,11 @@ class Form extends Component {
           </div>
           
           <div className={`form-group ${this.errorClass(this.state.formErrors.businessEmail)}`}>
-            <label>Business Email</label>
+            <label className="form-label">Business Email</label>
             <input 
               name="businessEmail"
               type="email" 
-              className="form-control" 
+              className="form-control input-lg form-input" 
               aria-describedby="businessEmailHelp" 
               value={this.state.businessEmail} 
               onChange={event => this.change(event)}
@@ -195,11 +196,11 @@ class Form extends Component {
             <FormError formError={this.state.formErrors.businessEmail} />
           </div>
           <div className={`form-group ${this.errorClass(this.state.formErrors.username)}`}>
-            <label>Create a Username</label>
+            <label className="form-label">Create a Username</label>
             <input 
               name="username"
               type="text" 
-              className="form-control" 
+              className="form-control input-lg form-input" 
               aria-describedby="usernameHelp" 
               value={this.state.username} 
               onChange={event => this.change(event)}
@@ -207,11 +208,11 @@ class Form extends Component {
             <FormError formError={this.state.formErrors.username} />
           </div>
           <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-            <label>Password <span className="text-muted"><small>6 characters | 1 uppercase | 1 lowercase | 1 digit</small></span></label>
+            <label className="form-label">Password <span className="text-muted"><small>6 characters | 1 uppercase | 1 lowercase | 1 digit</small></span></label>
             <input 
               name="password"
               type="password" 
-              className="form-control" 
+              className="form-control input-lg form-input" 
               aria-describedby="passwordHelp" 
               value={this.state.password} 
               onChange={event => this.change(event)}
@@ -219,21 +220,22 @@ class Form extends Component {
             <FormError formError={this.state.formErrors.password} />
           </div>
           <div className="form-group">
-            <label>Website <span className="text-muted"><small>(Optional)</small></span></label>
+            <label className="form-label">Website <span className="text-muted"><small>(Optional)</small></span></label>
             <input 
               name="website"
-              type="text" 
-              className="form-control" 
+              type="text"
+              placeholder="mywebsite.com" 
+              className="form-control input-lg form-input" 
               aria-describedby="websiteHelp" 
               value={this.state.website} 
               onChange={event => this.change(event)}
             />
           </div>
           <div className={`form-group ${this.errorClass(this.state.formErrors.typeOfBusiness)}`}>
-            <label>Type of Business</label>
+            <label className="form-label">Type of Business</label>
             <select 
               name="typeOfBusiness"
-              className="form-control"
+              className="form-control input-lg form-input"
               aria-describedby="typeOfBusinessHelp"
               value={this.state.typeOfBusiness} 
               onChange={event => this.change(event)}
@@ -247,39 +249,45 @@ class Form extends Component {
             </select>
             <FormError formError={this.state.formErrors.typeOfBusiness} />
           </div>
-          <div className={`form-check ${this.errorClass(this.state.formErrors.termsOfService)}`}>
-            <p>Terms of Service</p>
-            <label className="form-check-label">
+          <div className="">
+            <p><strong>Terms of Service</strong></p>
+            <label className="check">
               <input 
                 name="termsOfService"
                 type="checkbox" 
                 aria-describedby="termsOfServiceHelp"
-                className="form-check-input" 
+                className="" 
                 checked={this.state.termsOfService} 
                 onChange={event => this.changeCheckbox(event)}
                 />
-                I have read and do accept <a href="http://gosimplr.com/" target="_blank" rel="noopener noreferrer">terms of services</a>
+                <div className="box"></div>
+                <span className="checkbox-description text-muted">
+                  I have read and do accept <a href="http://gosimplr.com/" target="_blank" rel="noopener noreferrer">terms of services</a>
+                </span>
             </label>
             <FormError formError={this.state.formErrors.termsOfService} />
           </div>
-          <div className={`form-check ${this.errorClass(this.state.formErrors.privacyPolicy)}`}>
-            <p>Privacy Policy</p>
-            <label className="form-check-label">
+          <div className="">
+            <p><strong>Privacy Policy</strong></p>
+            <label className="check">
               <input 
                 name="privacyPolicy"
                 type="checkbox"
                 aria-describedby="privacyPolicyHelp" 
-                className="form-check-input" 
+                className="" 
                 checked={this.state.privacyPolicy} 
                 onChange={event => this.changeCheckbox(event)}
                 />
-                I have read and do accept <a href="http://gosimplr.com/" target="_blank" rel="noopener noreferrer">privacy policy</a>
+                <div className="box"></div>
+                <span className="checkbox-description text-muted">
+                  I have read and do accept <a href="http://gosimplr.com/" target="_blank" rel="noopener noreferrer">privacy policy</a>
+                </span>
             </label>
             <FormError formError={this.state.formErrors.privacyPolicy} />
           </div>
           <button 
             onClick={(event) => this.onSubmit(event)} 
-            className="btn btn-primary center-block" 
+            className="btn btn-primary btn-lg center-block register-button" 
             disabled={!this.state.formValid}>
               Register
           </button>

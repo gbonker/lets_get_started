@@ -1,3 +1,11 @@
+## Let's Get Started Sign Up Form
+
+This is a sign up form written in React with Bootstrap and custom styling. The form comes complete with validation and is responsive to all screen sizes. When the user submits the form, a confirmation message displays at the top.
+
+
+
+## Documentation
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
